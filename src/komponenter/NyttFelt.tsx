@@ -11,15 +11,16 @@ export const NyttFelt = (props: any, felttype: string) => {
 
   return (
     <div>
-      <StyledTittel>{`Finnes ikke ${felttype}${felttype === 'delmal'} ? 'en' : 'et'`}</StyledTittel>
+      <StyledTittel>{`Finnes ikke ${felttype}${
+        felttype === 'delmal' ? 'en' : 'et'
+      } du ønsker å ta med?`}</StyledTittel>
       <StyledButton
         onClick={() =>
-          (window.location.href = `${referenceBaseUrl}/intent/create/type=${felttype};templates=${felttype}}`)
+          (window.location.href = `${referenceBaseUrl}/intent/create/type=${felttype};templates=${felttype}/`)
         }
       >
-        <GoPlusSmall size={35} style={{ paddingTop: '2px' }}>{`Lag ${
-          felttype === 'delmal' ? 'ny' : 'nytt'
-        } ${felttype}`}</GoPlusSmall>
+        <GoPlusSmall size={35} style={{ paddingTop: '2px' }} />
+        {`Lag ${felttype === 'delmal' ? 'ny' : 'nytt'} ${felttype}`}
       </StyledButton>
     </div>
   )

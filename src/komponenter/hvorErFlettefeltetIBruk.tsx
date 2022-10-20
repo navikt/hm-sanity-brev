@@ -32,7 +32,7 @@ function HvorErFlettefeltetIBruk(props: any) {
 
   return (
     <div {...props}>
-      <div>Dette flettefeltet er i bruk {unike.lenght} steder:</div>
+      <div>Dette flettefeltet er i bruk {unike.length} steder:</div>
       <ul>
         {unike.map((ref: IReferrer) => {
           const stikkord = ref.stikkord ? ref.stikkord.join(';') + ';' : ''

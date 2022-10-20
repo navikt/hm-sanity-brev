@@ -1,6 +1,7 @@
 import { LOADING_PANE } from '@sanity/desk-tool'
 
 export enum DokumentNavn {
+    BLOCK = 'block',
   DOKUMENT = 'dokument',
   BOKMAAL = 'bokmaal',
   NYNORSK = 'nynorsk',

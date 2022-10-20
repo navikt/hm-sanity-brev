@@ -19,7 +19,7 @@ const DelmalBlock = (props: any, maalform: string, id = '', skalHaPadding = true
 
   if (error) {
     console.error(error)
-    return <ErrorStyling>Det skjedde eil feil.</ErrorStyling>
+    return <ErrorStyling>Det skjedde en feil.</ErrorStyling>
   }
 
   if (!data) {
