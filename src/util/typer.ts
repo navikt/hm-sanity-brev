@@ -1,11 +1,13 @@
 import { LOADING_PANE } from '@sanity/desk-tool'
 
 export enum DokumentNavn {
-    BLOCK = 'block',
+  BLOCK = 'block',
   DOKUMENT = 'dokument',
   BOKMAAL = 'bokmaal',
   NYNORSK = 'nynorsk',
   TITTEL = 'tittel',
+  TITTEL_BOKMAAL = 'tittelBokmaal',
+  TITTEL_NYNORSK = 'tittelNynorsk',
   MAPPE = 'mappe',
   VISNINGSNAVN = 'visningsnavn',
   API_NAVN = 'apiNavn',
@@ -31,12 +33,12 @@ export enum SanityTyper {
   LOCALE_STRING = 'localeString',
 }
 
-const supportedLanguages = [
+/*const supportedLanguages = [
   { id: 'no_nb', title: 'Norsk bokmål', isDefault: true },
   { id: 'no_nn', title: 'Norsk nynorsk' },
-]
+]*/
 
-export const localeString = {
+/*export const localeString = {
   title: 'Oversettelse string',
   name: 'localeString',
   type: 'object',
@@ -48,4 +50,4 @@ export const localeString = {
     type: SanityTyper.STRING,
     fieldset: lang.isDefault ? null : 'translations',
   })),
-}
+}*/
