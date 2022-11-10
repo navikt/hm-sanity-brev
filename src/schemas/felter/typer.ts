@@ -6,4 +6,5 @@ export const flettefelter = [
   { title: 'Sats beløp', value: 'satsBelop' },
   { title: 'Vedtaks dato', value: 'vedtaksDato' },
   { title: 'Optiker forretning', value: 'optikerForretning' },
+  {title: 'Neste kravdato', value: 'nesteKravdato'}
 ]
