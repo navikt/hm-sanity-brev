@@ -1,13 +1,9 @@
 import React from 'react'
-import { DokumentNavn, SanityTyper } from '../util/typer'
-import { flettefelter } from './felter/typer'
-import decorators from '../util/decorators'
-import FlettefeltAnnotering from './annoteringer/FlettefeltAnnotering'
-import { delmalAvsnitt } from './avsnitt/delmalAvsnitt'
-import { flettefeltAvsnitt } from './avsnitt/flettefeltAvsnitt'
-import TekstStyles from '../util/TekstStyles'
-import { apiNavnValideringer } from '../util/valideringer'
 import styled from 'styled-components'
+import { DokumentNavn, SanityTyper } from '../util/typer'
+import { apiNavnValideringer } from '../util/valideringer'
+import { delmalAvsnitt } from './avsnitt/delmalAvsnitt'
+import { flettefelter } from './felter/typer'
 
 /*const editor = (maalform, tittel) => ({
   name: maalform,
