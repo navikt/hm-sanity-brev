@@ -14,9 +14,8 @@ export const flettefelter = [
 export const hjemler = ['2', '3', '4', '6', '13']
 
 export const avslagFlettefelter = [
-  { title: 'Måned og år for begrunnelse', value: 'maanedOgAarBegrunnelsenGjelderFor' },
-  { title: 'Barns fødselsdato', value: 'barnasFodselsdatoer' },
-  { title: 'Beløp', value: 'belop' },
-  { title: 'Søknadstidspunkt', value: 'soknadstidspunkt' },
-  { title: 'Avtaletidspunkt - delt bosted', value: 'avtaletidspunktDeltBosted' },
+  { title: 'Bestillingsdato', value: 'bestillingsDato' },
+  { title: 'Forrige dato for briller', value: 'forrigeBrilleDato' },
+  { title: 'Sfærisk styrke', value: 'sfæriskStyrke' },
+  { title: 'Cylinderstyrke', value: 'cylinderstyrke' }
 ]
