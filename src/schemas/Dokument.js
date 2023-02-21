@@ -3,25 +3,10 @@ import styled from 'styled-components'
 import { DokumentNavn, SanityTyper } from '../util/typer'
 import { apiNavnValideringer } from '../util/valideringer'
 import { delmalAvsnitt } from './avsnitt/delmalAvsnitt'
+//import { peroideAvsnitt } from './avsnitt/periodeAvsnitt'
+import { begrunnelseAvsnitt } from './avsnitt/begrunnelseAvsnitt'
+//import { periodeFlettefeltAvsnitt } from './periode'
 import { flettefelter } from './felter/typer'
-
-/*const editor = (maalform, tittel) => ({
-  name: maalform,
-  title: tittel,
-  type: SanityTyper.ARRAY,
-  of: [
-    delmalAvsnitt(maalform),
-    flettefeltAvsnitt,
-    {
-      type: SanityTyper.BLOCK,
-      marks: {
-        annotations: [FlettefeltAnnotering('erListe == false || !defined(erListe)')],
-        decorators,
-      },
-      styles: TekstStyles,
-    },
-  ],
-})*/
 
 const inlineFlettefelt = {
   name: DokumentNavn.FLETTEFELT,
@@ -56,6 +41,8 @@ const editor = (maalform, tittel) => ({
   type: SanityTyper.ARRAY,
   of: [
     delmalAvsnitt(maalform),
+    begrunnelseAvsnitt,
+    //periodeFlettefeltAvsnitt,
     {
       name: DokumentNavn.BLOCK,
       type: SanityTyper.BLOCK,

@@ -3,6 +3,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import Dokument from './schemas/Dokument'
 import Delmal from './schemas/Delmal'
+import Begrunnelse from './schemas/begrunnelse';
 //import Flettefelt from './schemas/felter/Flettefelt'
 //import { localeString } from './util/typer'
 
@@ -14,5 +15,5 @@ export default createSchema({
   name: 'default',
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([Dokument, Delmal/*, localeString*/]),
+  types: schemaTypes.concat([Dokument, Delmal, Begrunnelse]),
 })

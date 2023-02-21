@@ -20,6 +20,10 @@ export enum DokumentNavn {
   DELMAL = 'delmal',
   DELMAL_REFERANSE = 'delmalReferanse',
   SKAL_ALLTID_MED = 'skalAlltidMed',
+  PERIODE = 'periode',
+  PERIODER = 'perioder',
+  BEGRUNNELSE = 'begrunnelse',
+  BEGRUNNELSER = 'begrunnelser'
 }
 
 export enum SanityTyper {
@@ -31,6 +35,23 @@ export enum SanityTyper {
   BLOCK = 'block',
   DOCUMENT = 'document',
   LOCALE_STRING = 'localeString',
+}
+
+export enum Begrunnelsestype {
+  AVSLAG = 'AVSLAG',
+}
+
+export const begrunnelsestyperTilMenynavn: Record<
+  Begrunnelsestype,
+  { title: string; value: Begrunnelsestype }
+> = {
+  AVSLAG: { title: 'Avslag', value: Begrunnelsestype.AVSLAG },
+}
+
+export enum BegrunnelseDokumentNavn {
+  BEGRUNNELSE = 'begrunnelse',
+  BEGRUNNELSE_TYPE = 'begrunnelsetype',
+  HJEMLER = 'hjemler',
 }
 
 /*const supportedLanguages = [
