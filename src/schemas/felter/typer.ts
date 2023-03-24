@@ -10,7 +10,7 @@ export const flettefelter = [
   { title: 'Utbetales til kontonr', value: 'utbetalesTilKontonr' },
   { title: 'Bestillingsdato', value: 'bestillingsDato' },
   { title: 'Barnets fulle navn', value: 'barnetsFulleNavn' },
-  { title: 'Mottatt dato', value: 'motattDato' },
+  { title: 'Mottatt dato', value: 'mottattDato' },
   { title: 'Barnets fornavn', value: 'barnetsFornavn' },
   { title: 'Sfærisk styrke høyre øye', value: 'sfæriskStyrkeHøyre' },
   { title: 'Cylinderstyrke høyre øye', value: 'cylinderstyrkeHøyre' },
