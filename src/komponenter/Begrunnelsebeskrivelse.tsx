@@ -1,13 +1,11 @@
-import * as React from 'react';
-import { DokumentNavn } from '../util/typer';
+import { DokumentNavn } from '../typer'
 
-export const BegrunnelseBeskrivelse = () => {
-  const referenceBaseUrl = window.location.pathname.split('/').slice(0, -1).join('/');
-
+export function BegrunnelseBeskrivelse() {
+  const referenceBaseUrl = window.location.pathname.split('/').slice(0, -1).join('/')
   return (
     <div>
-      Sysemet som tar i bruk denne malen vil fylle dette feltet med begrunnelser som er relevante. Begrunnelsene blir hentet fra sanity og er definert{' '}
-      <a href={`${referenceBaseUrl}/${DokumentNavn.BEGRUNNELSE}`}>her.</a>
+      Systemet som tar i bruk denne malen vil fylle dette feltet med begrunnelser som er relevante. Begrunnelsene blir
+      hentet fra Sanity og er definert <a href={`${referenceBaseUrl}/${DokumentNavn.BEGRUNNELSE}`}>her.</a>
     </div>
-  );
-};
+  )
+}

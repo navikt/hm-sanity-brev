@@ -1,28 +1,32 @@
-import { DokumentNavn, SanityTyper } from '../../util/typer';
-import { AiOutlineUnorderedList } from 'react-icons/ai';
-import { BegrunnelseBeskrivelse } from '../../komponenter/Begrunnelsebeskrivelse';
+import { UlistIcon } from '@sanity/icons'
+import { defineArrayMember, defineField } from 'sanity'
+import { BegrunnelseBeskrivelse } from '../../komponenter/Begrunnelsebeskrivelse'
+import { DokumentNavn } from '../../typer'
 
-export const begrunnelseAvsnitt = {
-  name: DokumentNavn.BEGRUNNELSER,
-  type: SanityTyper.OBJECT,
+export const begrunnelseAvsnitt = defineArrayMember({
   title: 'Begrunnelser',
+  name: DokumentNavn.BEGRUNNELSER,
+  type: 'object',
   fields: [
-    {
+    defineField({
+      title: 'Beskrivelse',
       name: 'begrunnelseBeskrivelse',
-      type: SanityTyper.STRING,
-      inputComponent: BegrunnelseBeskrivelse,
-    },
+      type: 'string',
+      components: {
+        input: BegrunnelseBeskrivelse,
+      },
+    }),
   ],
   preview: {
     select: {
-      title: 'title',
+      title: '_type',
     },
-    prepare: selection => {
-      const { title } = selection;
+    prepare(value) {
+      const { title } = value
       return {
-        media: AiOutlineUnorderedList,
-        title: title,
-      };
+        title: title.charAt(0).toUpperCase() + title.slice(1),
+        media: UlistIcon,
+      }
     },
   },
-};
+})

@@ -4,8 +4,7 @@
     "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "react-app"
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -23,7 +22,6 @@
     "prettier"
   ],
   "rules": {
-    "no-case-declarations": "off",
     "import/extensions": [
       "off",
       "ignorePackages",
@@ -35,15 +33,16 @@
       }
     ],
     "@typescript-eslint/ban-ts-ignore": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "prettier/prettier": "error",
-    "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/no-var-requires": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "react-app/react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "warn",
     "@typescript-eslint/switch-exhaustiveness-check": "error",
-    "import/no-anonymous-default-export": "off"
+    "import/no-anonymous-default-export": "off",
+    "no-case-declarations": "off",
+    "prettier/prettier": "error",
+    "react-app/react-hooks/exhaustive-deps": "off"
   },
   "settings": {
     "react": {

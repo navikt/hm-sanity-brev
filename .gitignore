@@ -1,2 +1,5 @@
+.idea
+.sanity
+dist
 node_modules
-dist/  
+*.iml
