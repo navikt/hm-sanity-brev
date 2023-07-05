@@ -1,6 +1,6 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { BegrunnelseDokumentNavn, Begrunnelsestype, begrunnelsestyperTilMenynavn, DokumentNavn } from '../typer'
-import { apiNavnValideringerBegrunnelse } from '../valideringer'
+import { apiNavnValideringerBegrunnelse } from '../utils/valideringer'
 import { avslagFlettefelter, hjemler } from './felter/flettefelter'
 
 const begrunnelseFlettefelt = defineArrayMember({

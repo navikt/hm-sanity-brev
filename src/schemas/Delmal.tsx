@@ -1,7 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { HvorErDelmalenIBruk } from '../komponenter/HvorErDelmalenIBruk'
 import { DokumentNavn } from '../typer'
-import { apiNavnValideringer } from '../valideringer'
+import { apiNavnValideringer } from '../utils/valideringer'
 import { flettefelter } from './felter/flettefelter'
 
 const inlineFlettefelt = defineArrayMember({

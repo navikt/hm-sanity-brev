@@ -1,6 +1,6 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { DokumentNavn } from '../typer'
-import { apiNavnValideringer } from '../valideringer'
+import { apiNavnValideringer } from '../utils/valideringer'
 import { begrunnelseAvsnitt } from './avsnitt/begrunnelseAvsnitt'
 import { delmalAvsnitt } from './avsnitt/delmalAvsnitt'
 import { flettefelter } from './felter/flettefelter'

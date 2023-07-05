@@ -1,5 +1,5 @@
-import { useDocumentId } from '../useDocumentId'
-import { useSanityQuery } from '../useSanityQuery'
+import { useDocumentId } from '../utils/useDocumentId'
+import { useSanityQuery } from '../utils/useSanityQuery'
 import { Feilmelding } from './Feilmelding'
 
 export function HvorErDelmalenIBruk() {

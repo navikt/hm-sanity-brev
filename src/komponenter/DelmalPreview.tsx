@@ -1,6 +1,6 @@
 import { PortableText } from '@portabletext/react'
 import { Badge } from '@sanity/ui'
-import { useSanityQuery } from '../useSanityQuery'
+import { useSanityQuery } from '../utils/useSanityQuery'
 import { Feilmelding } from './Feilmelding'
 
 export interface DelmalPreviewProps {

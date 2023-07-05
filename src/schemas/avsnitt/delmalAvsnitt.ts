@@ -36,6 +36,6 @@ export const delmalAvsnitt = (maalform: string) =>
       },
     },
     components: {
-      preview: DelmalPreview as any, // fixme
+      preview: DelmalPreview as any, // fixme props fra prepare blir ikke utledet riktig
     },
   })

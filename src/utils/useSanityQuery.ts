@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useClient } from 'sanity'
 
-export function useSanityQuery<T = any, E = any>(query: string) {
+export function useSanityQuery<T = any, E = unknown>(query: string) {
   const client = useClient({
     apiVersion: '2021-06-07',
   })

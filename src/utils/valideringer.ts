@@ -1,7 +1,7 @@
 import groq from 'groq'
 import { StringRule, ValidationContext } from 'sanity'
-import { Konstanter } from './konstanter'
-import { Begrunnelsestype } from './typer'
+import { Konstanter } from '../konstanter'
+import { Begrunnelsestype } from '../typer'
 
 const KUN_BOKSTAVER_OG_TALL_UTEN_ÆØÅ = /^[a-zæøå].*/
 const FØRSTE_TEGN_ER_LITEN_BOKSTAV = /^[a-z0-9]+$/i
