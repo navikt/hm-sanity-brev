@@ -25,5 +25,10 @@ export function begrunnelseAvsnitt() {
         },
       }),
     ],
+    preview: {
+      prepare() {
+        return { title: 'Begrunnelser' }
+      },
+    },
   })
 }
