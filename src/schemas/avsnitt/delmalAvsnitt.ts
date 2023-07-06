@@ -2,8 +2,8 @@ import { defineArrayMember, defineField } from 'sanity'
 import { DelmalPreview } from '../../komponenter/DelmalPreview'
 import { DokumentNavn } from '../../typer'
 
-export const delmalAvsnitt = (maalform: string) =>
-  defineArrayMember({
+export function delmalAvsnitt(maalform: string) {
+  return defineArrayMember({
     title: 'Delmal',
     name: DokumentNavn.DELMAL,
     type: 'object',
@@ -39,3 +39,4 @@ export const delmalAvsnitt = (maalform: string) =>
       preview: DelmalPreview as any, // fixme props fra prepare blir ikke utledet riktig
     },
   })
+}

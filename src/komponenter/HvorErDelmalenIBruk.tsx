@@ -1,4 +1,5 @@
 import { useDocumentId } from '../utils/useDocumentId'
+import { useDocumentUrl } from '../utils/useDocumentUrl'
 import { useSanityQuery } from '../utils/useSanityQuery'
 import { Feilmelding } from './Feilmelding'
 
@@ -21,7 +22,7 @@ export function HvorErDelmalenIBruk() {
     return <div>Denne delmalen er ikke i bruk.</div>
   }
 
-  const referenceBaseUrl = window.location.pathname.split('/').slice(0, -1).join('/')
+  const documentUrl = useDocumentUrl()
 
   return (
     <div>
@@ -33,7 +34,7 @@ export function HvorErDelmalenIBruk() {
           return (
             !erRefDraft && (
               <li key={ref._id}>
-                <a href={`${referenceBaseUrl}/${ref._type};${stikkord}${ref._id}`}>{ref.visningsnavn}</a>
+                <a href={`${documentUrl}/${ref._type};${stikkord}${ref._id}`}>{ref.visningsnavn}</a>
               </li>
             )
           )

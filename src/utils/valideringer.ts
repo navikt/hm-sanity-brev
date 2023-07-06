@@ -7,11 +7,11 @@ const KUN_BOKSTAVER_OG_TALL_UTEN_ÆØÅ = /^[a-zæøå].*/
 const FØRSTE_TEGN_ER_LITEN_BOKSTAV = /^[a-z0-9]+$/i
 
 export const apiNavnValideringer = (rule: StringRule, type: string) => [
-  rule.required().error('Feltet må settes'),
+  rule.required().error('Feltet må settes.'),
   rule
     .required()
     .regex(KUN_BOKSTAVER_OG_TALL_UTEN_ÆØÅ)
-    .error('Første tegn i feltet kan ikke være tall eller stor bokstav.'),
+    .error('Første tegn i feltet kan ikke være tall eller ha stor bokstav.'),
   rule
     .required()
     .regex(FØRSTE_TEGN_ER_LITEN_BOKSTAV)
@@ -39,7 +39,7 @@ export const apiNavnValideringerBegrunnelse = (rule: StringRule, type: string) =
       if (!Object.values(Begrunnelsestype).includes(begrunnelsestype)) {
         return (
           'Begrunnelsestypen er ikke satt og valideringen for API-navnet avhenger av begrunnelsestypen. ' +
-          'Sett begrunnelsestype før du setter apiNavn.'
+          'Sett begrunnelsestype før du setter API-navn.'
         )
       }
 

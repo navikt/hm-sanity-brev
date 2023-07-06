@@ -1,4 +1,4 @@
-import type { TitledListValue } from '@sanity/types'
+import type { TitledListValue } from 'sanity'
 
 export const flettefelter: ReadonlyArray<TitledListValue<string>> = [
   { title: 'Barnets fødselsnummer', value: 'barnetsFodselsnummer' },
@@ -19,8 +19,6 @@ export const flettefelter: ReadonlyArray<TitledListValue<string>> = [
   { title: 'Sfærisk styrke venstre øye', value: 'sfæriskStyrkeVenstre' },
   { title: 'Cylinderstyrke venstre øye', value: 'cylinderstyrkeVenstre' },
 ]
-
-export const hjemler = ['2', '3', '4', '6', '13']
 
 export const avslagFlettefelter: ReadonlyArray<TitledListValue<string>> = [
   { title: 'Bestillingsdato', value: 'bestillingsDato' },

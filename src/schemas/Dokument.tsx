@@ -1,54 +1,12 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { DokumentNavn } from '../typer'
 import { apiNavnValideringer } from '../utils/valideringer'
+import { betingelser } from './annotasjoner/betingelser'
+import { betingetVisning } from './annotasjoner/betingetVisning'
 import { begrunnelseAvsnitt } from './avsnitt/begrunnelseAvsnitt'
 import { delmalAvsnitt } from './avsnitt/delmalAvsnitt'
+import { findListValueTitle } from './felter/findListValueTitle'
 import { flettefelter } from './felter/flettefelter'
-
-const inlineFlettefelt = defineArrayMember({
-  name: DokumentNavn.FLETTEFELT,
-  type: 'object',
-  fields: [
-    defineField({
-      name: DokumentNavn.FLETTEFELT,
-      type: 'string',
-      options: {
-        list: [...flettefelter],
-      },
-      validation(rule) {
-        return [rule.required().error('Tomt flettefelt')]
-      },
-    }),
-  ],
-  preview: {
-    select: {
-      flettefelt: DokumentNavn.FLETTEFELT,
-    },
-    prepare(value) {
-      const listValue = flettefelter.find(flettefelt => flettefelt.value === value.flettefelt)
-      return {
-        title: listValue?.title,
-      }
-    },
-  },
-})
-
-function editor(maalform: string, tittel: string) {
-  return defineField({
-    name: maalform,
-    title: tittel,
-    type: 'array',
-    of: [
-      delmalAvsnitt(maalform),
-      begrunnelseAvsnitt,
-      defineArrayMember({
-        name: DokumentNavn.BLOCK,
-        type: 'block',
-        of: [inlineFlettefelt],
-      }),
-    ],
-  })
-}
 
 export const Dokument = defineType({
   title: 'Dokument',
@@ -85,9 +43,51 @@ export const Dokument = defineType({
     editor(DokumentNavn.BOKMÅL, 'Bokmål'),
     editor(DokumentNavn.NYNORSK, 'Nynorsk'),
   ],
-  preview: {
-    select: {
-      title: DokumentNavn.VISNINGSNAVN,
-    },
-  },
 })
+
+function editor(maalform: string, tittel: string) {
+  return defineField({
+    name: maalform,
+    title: tittel,
+    type: 'array',
+    of: [
+      delmalAvsnitt(maalform),
+      begrunnelseAvsnitt(),
+      defineArrayMember({
+        name: DokumentNavn.BLOCK,
+        type: 'block',
+        marks: {
+          annotations: [betingetVisning(betingelser)],
+        },
+        of: [
+          defineArrayMember({
+            name: DokumentNavn.FLETTEFELT,
+            type: 'object',
+            fields: [
+              defineField({
+                name: DokumentNavn.FLETTEFELT,
+                type: 'string',
+                options: {
+                  list: [...flettefelter],
+                },
+                validation(rule) {
+                  return [rule.required().error('Tomt flettefelt')]
+                },
+              }),
+            ],
+            preview: {
+              select: {
+                flettefelt: DokumentNavn.FLETTEFELT,
+              },
+              prepare(value) {
+                return {
+                  title: findListValueTitle(flettefelter, value.flettefelt),
+                }
+              },
+            },
+          }),
+        ],
+      }),
+    ],
+  })
+}

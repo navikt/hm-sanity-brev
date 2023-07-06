@@ -1,51 +1,9 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { BegrunnelseDokumentNavn, Begrunnelsestype, begrunnelsestyperTilMenynavn, DokumentNavn } from '../typer'
 import { apiNavnValideringerBegrunnelse } from '../utils/valideringer'
-import { avslagFlettefelter, hjemler } from './felter/flettefelter'
-
-const begrunnelseFlettefelt = defineArrayMember({
-  title: 'Begrunnelse',
-  name: DokumentNavn.FLETTEFELT,
-  type: 'object',
-  fields: [
-    defineField({
-      name: DokumentNavn.FLETTEFELT,
-      type: 'string',
-      options: {
-        list: [...avslagFlettefelter],
-      },
-      validation(rule) {
-        return [rule.required().error('Tomt flettefelt')]
-      },
-    }),
-  ],
-  preview: {
-    select: {
-      flettefelt: DokumentNavn.FLETTEFELT,
-    },
-    prepare(value) {
-      const listValue = avslagFlettefelter.find(flettefelt => flettefelt.value === value.flettefelt)
-      return {
-        title: listValue?.title,
-      }
-    },
-  },
-})
-
-function editor(maalform: string, tittel: string) {
-  return defineField({
-    title: tittel,
-    name: maalform,
-    type: 'array',
-    of: [
-      defineArrayMember({
-        name: DokumentNavn.BLOCK,
-        type: 'block',
-        of: [begrunnelseFlettefelt],
-      }),
-    ],
-  })
-}
+import { findListValueTitle } from './felter/findListValueTitle'
+import { avslagFlettefelter } from './felter/flettefelter'
+import { hjemler } from './felter/hjemler'
 
 export const Begrunnelse = defineType({
   title: 'Begrunnelse',
@@ -61,7 +19,7 @@ export const Begrunnelse = defineType({
       },
     }),
     defineField({
-      title: 'Begrunnelsetype',
+      title: 'Begrunnelsestype',
       name: BegrunnelseDokumentNavn.BEGRUNNELSE_TYPE,
       type: 'string',
       options: {
@@ -75,7 +33,7 @@ export const Begrunnelse = defineType({
       title: 'API-navn',
       name: DokumentNavn.API_NAVN,
       type: 'string',
-      description: 'Teknisk navn. For eksempel innvilgetInnhenteOpplysninger',
+      description: 'Teknisk navn, for eksempel innvilgetInnhenteOpplysninger',
       validation(rule) {
         return apiNavnValideringerBegrunnelse(rule, BegrunnelseDokumentNavn.BEGRUNNELSE)
       },
@@ -93,11 +51,6 @@ export const Begrunnelse = defineType({
     editor(DokumentNavn.BOKMÅL, 'Bokmål'),
     editor(DokumentNavn.NYNORSK, 'Nynorsk'),
   ],
-  preview: {
-    select: {
-      title: DokumentNavn.VISNINGSNAVN,
-    },
-  },
   validation: rule =>
     rule.custom((value, context: any): true | string => {
       const feil: any[] = []
@@ -120,3 +73,46 @@ export const Begrunnelse = defineType({
       }
     }),
 })
+
+function editor(maalform: string, tittel: string) {
+  return defineField({
+    title: tittel,
+    name: maalform,
+    type: 'array',
+    of: [
+      defineArrayMember({
+        name: DokumentNavn.BLOCK,
+        type: 'block',
+        of: [
+          defineArrayMember({
+            title: 'Begrunnelse',
+            name: DokumentNavn.FLETTEFELT,
+            type: 'object',
+            fields: [
+              defineField({
+                name: DokumentNavn.FLETTEFELT,
+                type: 'string',
+                options: {
+                  list: [...avslagFlettefelter],
+                },
+                validation(rule) {
+                  return [rule.required().error('Tomt flettefelt')]
+                },
+              }),
+            ],
+            preview: {
+              select: {
+                flettefelt: DokumentNavn.FLETTEFELT,
+              },
+              prepare(value) {
+                return {
+                  title: findListValueTitle(avslagFlettefelter, value.flettefelt),
+                }
+              },
+            },
+          }),
+        ],
+      }),
+    ],
+  })
+}

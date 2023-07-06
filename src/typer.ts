@@ -1,4 +1,4 @@
-import type { TitledListValue } from '@sanity/types'
+import type { TitledListValue } from 'sanity'
 
 export const DokumentNavn = {
   BLOCK: 'block',
