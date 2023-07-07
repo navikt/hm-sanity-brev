@@ -59,35 +59,67 @@ function editor(maalform: string, tittel: string) {
         marks: {
           annotations: [betingetVisning(betingelser)],
         },
-        of: [
-          defineArrayMember({
-            name: DokumentNavn.FLETTEFELT,
-            type: 'object',
-            fields: [
-              defineField({
-                name: DokumentNavn.FLETTEFELT,
-                type: 'string',
-                options: {
-                  list: [...flettefelter],
-                },
-                validation(rule) {
-                  return [rule.required().error('Tomt flettefelt')]
-                },
-              }),
-            ],
-            preview: {
-              select: {
-                flettefelt: DokumentNavn.FLETTEFELT,
-              },
-              prepare(value) {
-                return {
-                  title: findListValueTitle(flettefelter, value.flettefelt),
-                }
-              },
-            },
-          }),
-        ],
+        of: [inlineFlettefelt(), inlineBetingetTekst()],
       }),
     ],
+  })
+}
+
+function inlineFlettefelt() {
+  return defineArrayMember({
+    name: DokumentNavn.FLETTEFELT,
+    type: 'object',
+    fields: [
+      defineField({
+        name: DokumentNavn.FLETTEFELT,
+        type: 'string',
+        options: {
+          list: [...flettefelter],
+        },
+        validation(rule) {
+          return [rule.required().error('Tomt flettefelt')]
+        },
+      }),
+    ],
+    preview: {
+      select: {
+        flettefelt: DokumentNavn.FLETTEFELT,
+      },
+      prepare(value) {
+        return {
+          title: findListValueTitle(flettefelter, value.flettefelt),
+        }
+      },
+    },
+  })
+}
+
+function inlineBetingetTekst() {
+  return defineArrayMember({
+    title: 'Betinget tekst',
+    name: 'betingetTekst',
+    type: 'object',
+    fields: [
+      defineField({
+        name: 'betingelse',
+        type: 'string',
+        options: {
+          list: [...betingelser],
+        },
+        validation(rule) {
+          return [rule.required().error('Tom betingelse')]
+        },
+      }),
+      defineField({
+        name: 'tekst',
+        type: 'array',
+        of: [{ name: 'block', type: 'block', of: [inlineFlettefelt()] }],
+      }),
+    ],
+    preview: {
+      select: {
+        title: 'tekst',
+      },
+    },
   })
 }
