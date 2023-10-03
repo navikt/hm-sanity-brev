@@ -18,7 +18,8 @@ export const flettefelter: ReadonlyArray<TitledListValue<string>> = [
   { title: 'Cylinderstyrke høyre øye', value: 'cylinderstyrkeHøyre' },
   { title: 'Sfærisk styrke venstre øye', value: 'sfæriskStyrkeVenstre' },
   { title: 'Cylinderstyrke venstre øye', value: 'cylinderstyrkeVenstre' },
-  {title: 'Fritekst fra saksbehandler', value: 'fritekstSaksbehandler'}
+  { title: 'Fritekst fra saksbehandler', value: 'fritekstSaksbehandler' },
+  { title: 'Etterspurte opplysninger brev datert dato', value: 'etterspurteOpplysningerBrevDatertDato' },
 ]
 
 export const avslagFlettefelter: ReadonlyArray<TitledListValue<string>> = [
