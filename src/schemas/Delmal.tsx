@@ -2,8 +2,9 @@ import { defineArrayMember, defineField, defineType } from 'sanity'
 import { HvorErDelmalenIBruk } from '../komponenter/HvorErDelmalenIBruk'
 import { DokumentNavn } from '../typer'
 import { apiNavnValideringer } from '../utils/valideringer'
-import { findListValueTitle } from './felter/findListValueTitle'
-import { flettefelter } from './felter/flettefelter'
+import { betingelser } from './annotasjoner/betingelser'
+import { betingetVisning } from './annotasjoner/betingetVisning'
+import { inlineBetingetTekst, inlineFlettefelt } from './Dokument'
 
 export const Delmal = defineType({
   title: 'Delmal',
@@ -54,34 +55,10 @@ function editor(maalform: string, tittel: string) {
       defineArrayMember({
         name: DokumentNavn.BLOCK,
         type: 'block',
-        of: [
-          defineArrayMember({
-            name: DokumentNavn.FLETTEFELT,
-            type: 'object',
-            fields: [
-              {
-                name: DokumentNavn.FLETTEFELT,
-                type: 'string',
-                options: {
-                  list: [...flettefelter],
-                },
-                validation(rule) {
-                  return [rule.required().error('Tomt flettefelt')]
-                },
-              },
-            ],
-            preview: {
-              select: {
-                flettefelt: DokumentNavn.FLETTEFELT,
-              },
-              prepare(value) {
-                return {
-                  title: findListValueTitle(flettefelter, value.flettefelt),
-                }
-              },
-            },
-          }),
-        ],
+        marks: {
+          annotations: [betingetVisning(betingelser)],
+        },
+        of: [inlineFlettefelt(), inlineBetingetTekst()],
       }),
     ],
   })

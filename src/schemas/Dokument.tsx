@@ -65,7 +65,7 @@ function editor(maalform: string, tittel: string) {
   })
 }
 
-function inlineFlettefelt() {
+export function inlineFlettefelt() {
   return defineArrayMember({
     name: DokumentNavn.FLETTEFELT,
     type: 'object',
@@ -94,7 +94,7 @@ function inlineFlettefelt() {
   })
 }
 
-function inlineBetingetTekst() {
+export function inlineBetingetTekst() {
   return defineArrayMember({
     title: 'Betinget tekst',
     name: 'betingetTekst',
