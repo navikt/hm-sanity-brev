@@ -20,10 +20,12 @@ export const DokumentNavn = {
 
 export const Begrunnelsestype = {
   AVSLAG: 'AVSLAG',
+  STANSET: 'STANSET',
 }
 
 export const begrunnelsestyperTilMenynavn: Record<string, TitledListValue<string>> = {
   AVSLAG: { title: 'Avslag', value: Begrunnelsestype.AVSLAG },
+  STANSET: { title: 'Stanset', value: Begrunnelsestype.STANSET },
 }
 
 export const BegrunnelseDokumentNavn = {

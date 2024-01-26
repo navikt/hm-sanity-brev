@@ -28,6 +28,7 @@ export const apiNavnValideringer = (rule: StringRule, type: string) => [
 
 const apiNavnPrefiksMap: Record<string, string> = {
   AVSLAG: 'avslag',
+  STANSET: 'stanset',
 }
 
 export const apiNavnValideringerBegrunnelse = (rule: StringRule, type: string) => {
