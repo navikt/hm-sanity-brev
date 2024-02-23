@@ -47,4 +47,16 @@ export default defineConfig<WorkspaceOptions[]>([
     },
     auth: navAuthProvider('hotsak-brev-prod'),
   },
+  {
+    projectId,
+    title: 'dev',
+    dataset: 'hotsak-feedback-dev',
+    name: 'hotsak-feedback-dev',
+    basePath: '/hotsak-feedback-dev',
+    plugins: [deskTool(), visionTool({ defaultApiVersion: '2021-10-21' })],
+    schema: {
+      types,
+    },
+    auth: navAuthProvider('hotsak-brev-dev'),
+  },
 ])
