@@ -49,7 +49,7 @@ export default defineConfig<WorkspaceOptions[]>([
   },
   {
     projectId,
-    title: 'dev',
+    title: 'feedback-dev',
     dataset: 'hotsak-feedback-dev',
     name: 'hotsak-feedback-dev',
     basePath: '/hotsak-feedback-dev',
