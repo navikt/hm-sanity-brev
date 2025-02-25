@@ -20,6 +20,12 @@ export const flettefelter: ReadonlyArray<TitledListValue<string>> = [
   { title: 'Cylinderstyrke venstre øye', value: 'cylinderstyrkeVenstre' },
   { title: 'Fritekst fra saksbehandler', value: 'fritekstSaksbehandler' },
   { title: 'Etterspurte opplysninger brev datert dato', value: 'etterspurteOpplysningerBrevDatertDato' },
+  { title: 'Journalført dato', value: 'journalfortDato' },
+  { title: 'Saksnummer', value: 'saksnummer' },
+  { title: 'Brukers fulle navn', value: 'brukersFulleNavn' },
+  { title: 'Brukers fodselsnummer', value: 'brukersFodselsnummer' },
+  { title: 'Saksbehandlers fulle navn', value: 'saksbehandlersFulleNavn' },
+  { title: 'Saksbehandlers enhet', value: 'saksbehandlersEnhet' },
 ]
 
 export const avslagFlettefelter: ReadonlyArray<TitledListValue<string>> = [
