@@ -27,7 +27,8 @@ export const flettefelter: ReadonlyArray<TitledListValue<string>> = [
   { title: 'Brukers fulle navn', value: 'brukersFulleNavn' },
   { title: 'Brukers fødselsnummer', value: 'brukersFødselsnummer' },
   { title: 'Saksbehandlers fulle navn', value: 'saksbehandlersFulleNavn' },
-  { title: 'Saksbehandlers enhet', value: 'saksbehandlersEnhet' },
+  { title: 'Saksbehandlers enhetsnummer', value: 'saksbehandlersEnhetsnummer' },
+  { title: 'Saksbehandlers enhetsnavn', value: 'saksbehandlersEnhetsnavn' },
 ]
 
 export const avslagFlettefelter: ReadonlyArray<TitledListValue<string>> = [
